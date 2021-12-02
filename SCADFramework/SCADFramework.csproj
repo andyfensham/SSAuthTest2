@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Handlebars.Net" Version="2.0.9" />
+    <PackageReference Include="Npgsql" Version="6.0.0" />
+    <PackageReference Include="Npgsql.NodaTime" Version="6.0.0" />
+    <PackageReference Include="ServiceStack" Version="5.13.3" />
+    <PackageReference Include="ServiceStack.OrmLite" Version="5.13.3" />
+    <PackageReference Include="ServiceStack.OrmLite.PostgreSQL" Version="5.13.3" />
+    <PackageReference Include="ServiceStack.OrmLite.Sqlite" Version="5.13.3" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" Version="5.13.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SSAuthTest2.ServiceModel\SSAuthTest2.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>
