@@ -21,13 +21,15 @@ namespace SSAuthTest2.ServiceInterface
             {
                 var result = db.Select<MyTable>();
 
+                var resultdynamic = db.Select<dynamic>("select Id, FirstName from MyTable");
+
                 var dapperresult = db.Query("select Id, FirstName from MyTable", null);
 
                 var dappertyped = db.Query<MyTable>("select Id, FirstName from MyTable", null);
 
                 var dapperdict = Utils.DapperDynamicToIDictionaryList(dapperresult);
 
-                return new { ormlite = result, dappertypedresult = dappertyped, dapperraw = dapperresult, dapperdictionary = dapperdict};
+                return new { ormlite = result, ormlitedynamic = resultdynamic, dappertypedresult = dappertyped, dapperraw = dapperresult, dapperdictionary = dapperdict};
             }
             
             //    return new HelloResponse { Result = $"Hello, {request.Name}!User Auth {session.UserAuthId}" };
