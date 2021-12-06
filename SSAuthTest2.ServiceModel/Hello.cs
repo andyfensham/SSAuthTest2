@@ -9,6 +9,13 @@ namespace SSAuthTest2.ServiceModel
         public string Name { get; set; }
     }
 
+    [Route("/secure/hello")]
+    [Route("/secure hello/{Name}")]
+    public class SecureHello : IReturn<HelloResponse>
+    {
+        public string Name { get; set; }
+    }
+
     public class HelloResponse
     {
         public string Result { get; set; }

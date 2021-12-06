@@ -4,18 +4,14 @@ using ServiceStack;
 using ServiceStack.Data;
 using ServiceStack.DataAnnotations;
 using ServiceStack.OrmLite;
+using SSAuthTest2.ServiceModel.Types;
 
 [assembly: HostingStartup(typeof(SSAuthTest2.ConfigureDb))]
 
 namespace SSAuthTest2
 {
     // Example Data Model
-    // public class MyTable
-    // {
-    //     [AutoIncrement]
-    //     public int Id { get; set; }
-    //     public string Name { get; set; }
-    // }
+   
 
     public class ConfigureDb : IHostingStartup
     {
@@ -30,11 +26,11 @@ namespace SSAuthTest2
                 appHost.ScriptContext.ScriptMethods.Add(new DbScriptsAsync());
 
                 // Create non-existing Table and add Seed Data Example
-                // using var db = appHost.Resolve<IDbConnectionFactory>().Open();
-                // if (db.CreateTableIfNotExists<MyTable>())
-                // {
-                //     db.Insert(new MyTable { Name = "Seed Data for new MyTable" });
-                // }
+                using var db = appHost.Resolve<IDbConnectionFactory>().Open();
+                if (db.CreateTableIfNotExists<MyTable>())
+                {
+                    db.Insert(new MyTable { FirstName = "Seed Data for new MyTable" });
+                }
             });
     }
 }
